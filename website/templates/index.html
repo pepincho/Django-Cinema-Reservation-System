@@ -1,11 +1,18 @@
-<html>
+{% extends "base.html" %}
 
-    <head>
-        <title> Cinema Reservation System </title>
-    </head>
+{% block content %}
+    <font size="6"> List of all movies: </font>
 
-    <body>
-        <h1> Cinema Reservation System with Django </h1>
-    </body>
 
-</html>
+
+    {% for key, values in movie_projections.items %}
+        <li>
+            {{ key }}
+        </li>
+        {% for v in values %}
+            <ol>
+                {{ v }}
+            </ol>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

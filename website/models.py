@@ -10,6 +10,9 @@ class Movie(models.Model):
     def __str__(self):
         return "{} - {}".format(self.name, self.rating)
 
+    def __hash__(self):
+        return hash(self.__str__())
+
 
 class Projection(models.Model):
     movie_id = models.ForeignKey(Movie)
@@ -18,7 +21,10 @@ class Projection(models.Model):
     time = models.DateTimeField()
 
     def __str__(self):
-        return "{} - {} - {}".format(self.movie_id.name, self.proj_type, self.time)
+        return "{} - {} - {}".format(self.movie_id.name, self.proj_type, self.time.time())
+
+    def __hash__(self):
+        return hash(self.__str__())
 
 
 class Reservation(models.Model):
