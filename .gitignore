@@ -58,3 +58,6 @@ target/
 
 # env folder
 cinema_env/
+
+# db file
+db.sqlite3
